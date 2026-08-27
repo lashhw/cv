@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+
+      - name: Push main.pdf to pdf branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan pdf
+          git reset
+          git add -f main.pdf
+          git commit -m "build from ${GITHUB_SHA::7}"
+          git push -f origin pdf
