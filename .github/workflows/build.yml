@@ -22,8 +22,12 @@ jobs:
           sudo apt-get install -y poppler-utils
           pdftoppm -png -r 150 yen-chieh-huang.pdf preview
 
-      - name: Generate README.md
+      - name: Push to pdf branch
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git switch --orphan pdf
+
           repo_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
           {
             echo "# CV"
@@ -40,11 +44,6 @@ jobs:
             done
           } > README.md
 
-      - name: Push to pdf branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git switch --orphan pdf
           git add yen-chieh-huang.pdf preview-*.png README.md
           git commit -m "build from ${GITHUB_SHA::7}"
           git push -f origin pdf
