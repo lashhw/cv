@@ -9,4 +9,4 @@ watch:
 	latexmk -pdf -pvc -outdir=build main.tex
 
 clean:
-	latexmk -C -outdir=build
+	rm -rf build
