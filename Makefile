@@ -1,12 +1,12 @@
 .PHONY: all watch clean
 
-all: build/main.pdf
+all: build/yen-chieh-huang.pdf
 
-build/main.pdf: main.tex
+build/yen-chieh-huang.pdf: yen-chieh-huang.tex
 	latexmk -pdf -outdir=build $<
 
 watch:
-	latexmk -pdf -pvc -outdir=build main.tex
+	latexmk -pdf -pvc -outdir=build yen-chieh-huang.tex
 
 clean:
 	rm -rf build
