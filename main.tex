@@ -81,6 +81,14 @@
 
 \newcommand{\subnote}[1]{{\footnotesize\textcolor[gray]{0.45}{(#1)}}}
 
+\newcommand{\resumeAward}[2]{%
+  \item\small{%
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & #2
+    \end{tabular*}\vspace{-4pt}%
+  }%
+}
+
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
 \renewcommand{\labelitemii}{$\bullet$}
@@ -121,6 +129,18 @@
     \resumeItemPlain{\textbf{Y.-C. Huang}, P.-C. Hsiu, R. Fang, and M.-S. Chen, ``KV Admission: Learning What to Write for Efficient Long-Context LLM Inference,'' \textit{EMNLP}, 2026 \subnote{top NLP conference}}
     \resumeItemPlain{C.-Y. Liu, H. R. Mendis, \textbf{Y.-C. Huang}, Y.-J. Chen, and P.-C. Hsiu, ``Splitting Bottlenecks: Memory-Aware Neural Architecture Search for Multi-Branch TinyML,'' \textit{IEEE TCAD}, 2026 \subnote{top EDA journal}}
     \resumeItemPlain{\textbf{Y.-C. Huang}, C.-P. Yang, and T. T. Yeh, ``AQB8: Energy-Efficient Ray Tracing Accelerator through Multi-Level Quantization,'' \textit{ISCA}, 2025 \subnote{top computer architecture conference}}
+  \resumeSubHeadingListEnd
+
+
+
+%-----------HONORS AND AWARDS-----------------
+\section{Honors \& Awards}
+  \resumeSubHeadingListStart
+    \resumeAward{Outstanding Students Conference Travel Grant \subnote{for presenting at ISCA 2025}}{FAOS, 2025}
+    \resumeAward{Phi Tau Phi Scholastic Honor Society Member \subnote{for top 1\% in CS department}}{NYCU, 2024}
+    \resumeAward{Yin Zhi Tong Electronics Laboratory Scholarship \subnote{for excellence in electronics project}}{NYCU, 2024}
+    \resumeAward{Best Project Award, Competition of Computer Science and Engineering Projects}{NYCU, 2024}
+    \resumeAward{Academic Excellence Award \subnote{for top 5\% in CS department, awarded in 7 semesters}}{NYCU, 2020 -- 2024}
   \resumeSubHeadingListEnd
 
 
