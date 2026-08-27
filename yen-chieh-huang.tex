@@ -4,7 +4,7 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -73,10 +73,8 @@
     \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeItemPlain}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+\newcommand{\resumeItemPlain}[1]{%
+  \item{\small #1\vspace{-2pt}\par}%
 }
 
 \newcommand{\subnote}[1]{{\footnotesize\textcolor[gray]{0.45}{(#1)}}}
@@ -95,7 +93,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,rightmargin=\labelsep,label={},itemsep=6pt,parsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\vspace{-1pt}\begin{itemize}[leftmargin=1.5em]}
+\newcommand{\resumeItemListStart}{\vspace{-1pt}\begin{itemize}[leftmargin=1.5em,itemsep=4pt,parsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------
@@ -141,7 +139,7 @@
       {Graduate Researcher}{Sep 2024 -- Aug 2026}
       {NTU \& Academia Sinica \subnote{Advised by Prof. Ming-Syan Chen and Prof. Pi-Cheng Hsiu}}{Taipei, Taiwan}
       \resumeItemListStart
-        \resumeItemPlain{Proposed KV Admission, a learned write gate that filters redundant tokens before cache entry, and built a dual-cache paged manager with sparse attention kernels for 1.6-4.2x speedups in long-context LLM inference (EMNLP 2026).}
+        \resumeItemPlain{Proposed KV Admission, a learned write gate that filters redundant tokens before cache entry, and built a dual-cache paged manager with sparse attention kernels for 1.6-4.2x faster long-context LLM inference (EMNLP 2026).}
         \resumeItemPlain{Built the TensorFlow Lite Micro and STM32Cube.AI deployment toolchain for DupNAS, a memory-aware neural architecture search (NAS) framework for multi-branch TinyML on STM microcontrollers (IEEE TCAD 2026).}
       \resumeItemListEnd
 
@@ -149,7 +147,7 @@
       {Undergraduate Researcher}{Jul 2022 -- Jun 2024}
       {National Yang Ming Chiao Tung University \subnote{Advised by Prof. Tsung Tai Yeh}}{Hsinchu, Taiwan}
       \resumeItemListStart
-        \resumeItemPlain{Designed AQB8, a ray tracing (RT) accelerator that traverses BVH trees directly in low-bit integers through multi-level quantization, achieving 49\% lower energy and 27\% smaller area over modern GPU RT accelerators (ISCA 2025).}
+        \resumeItemPlain{Designed AQB8, a ray tracing (RT) accelerator that traverses BVH trees directly in low-bit integers via multi-level quantization, achieving 49\% lower energy and 27\% smaller area over modern GPU RT accelerators (ISCA 2025).}
       \resumeItemListEnd
 
     \resumeSubheading
