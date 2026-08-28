@@ -15,6 +15,7 @@ jobs:
       - uses: xu-cheng/latex-action@v4
         with:
           root_file: yen-chieh-huang.tex
+          latexmk_use_xelatex: true
 
       - name: Render preview images
         run: |

@@ -11,8 +11,8 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage[english]{babel}
+\usepackage{fontspec}
 \usepackage[hidelinks]{hyperref}
-\input{glyphtounicode}
 
 \pagestyle{empty}
 \urlstyle{same}
@@ -23,9 +23,6 @@
 \def\@texttop{\vfil}
 \def\@textbottom{\vfil}
 \makeatother
-
-% Ensure that generated PDF is machine readable/ATS parsable
-\pdfgentounicode=1
 
 %-------------------------------------------------------------------
 % Vertical spacing knobs.  Every gap in the CV is set here, in one
@@ -77,6 +74,10 @@
 % A closing remark set off from the entries above it.
 \newcommand{\resumeNote}[1]{\par\addvspace{\notesep}\item \small\textit{#1}}
 
+% Chinese text. Harano Aji Mincho ships with TeX Live.
+\newfontfamily{\cnfont}{HaranoAjiMincho-Medium.otf}
+\newcommand{\cn}[1]{{\cnfont #1}}
+
 \newcommand{\subnote}[1]{{\footnotesize\textup{\textcolor[gray]{0.45}{(#1)}}}}
 
 \newcommand{\resumeSubHeadingListStart}[1][\entrysep]{\begin{entries}[itemsep=#1]}
@@ -91,7 +92,7 @@
 \begin{document}
 
 %----------HEADING-----------------
-\lrline{{\Large\textbf{\href{https://lashhw.github.io/}{Yen-Chieh Huang}}}}%
+\lrline{{\Large\textbf{Yen-Chieh Huang}}\ \cn{\Large 黃彥傑}}%
        {LinkedIn: \href{https://linkedin.com/in/lashhw/}{linkedin.com/in/lashhw}}\\
 \lrline{\href{https://lashhw.github.io/}{https://lashhw.github.io/}}%
        {Email: \href{mailto:r13921038@ntu.edu.tw}{r13921038@ntu.edu.tw}}
