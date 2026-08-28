@@ -156,17 +156,17 @@
 \section{Selected Projects}
   \resumeSubHeadingListStart[\entrysep]
     \resumeSubItem{RISC CPU Design, from RTL to GDSII}
-      {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, place \& route, post-layout simulation, STA, LVS, and DRC.}
+      {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, automatic place \& route, post-layout simulation, STA, LVS, and DRC.}
     \resumeSubItem{MLP Inference Accelerator on an FPGA SoC}
       {Offloaded digit classification from an FPU-less soft-core CPU on a Xilinx Artix-7, keeping the multiply-adder saturated and overlapping transfers via BRAM FIFOs for a 309x speedup.}
-    \resumeSubItem{Multimodal Perception of Driving Corner Cases}
-      {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining QA pairs from misses.}
     \resumeSubItem{Channel, Global, and Detailed Routers for VLSI}
-      {Built a greedy channel router, a global router that rips up and reroutes by negotiation on ISPD 2008 benchmarks, and a detailed router that encodes routability as MaxSAT.}
-    \resumeSubItem{Linux Kernel Module and Page-Table Interface}
-      {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that walk page tables and install entries on demand.}
+      {Built a greedy channel router, a global router using negotiation-based rip-up and reroute on ISPD 2008 benchmarks, and a detailed router that encodes routability as MaxSAT.}
+    \resumeSubItem{Linux Kernel Module and Page-Table Manipulation}
+      {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that install page-table entries on demand.}
     \resumeSubItem{Parallel Ray Tracer with SIMD, OpenMP, MPI, and CUDA}
       {Built a ray tracer from scratch and parallelized it across pixels, samples, and bounces, with coalesced access and a split-kernel design that raises CUDA occupancy.}
+    \resumeSubItem{Multimodal VLM for Driving Comprehension}
+      {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining QA pairs from misses.}
     \resumeNote{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}
   \resumeSubHeadingListEnd
 
