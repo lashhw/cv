@@ -26,13 +26,13 @@
 % Vertical spacing knobs.  Every gap in the CV is set here, in one
 % place -- nothing in the body should ever call \vspace.
 %-------------------------------------------------------------------
-\newlength{\sectionsep}   \setlength{\sectionsep}{9pt}  % above a section title
-\newlength{\titlesep}     \setlength{\titlesep}{10pt}     % below the section rule
+\newlength{\sectionsep}   \setlength{\sectionsep}{7.5pt}  % above a section title
+\newlength{\titlesep}     \setlength{\titlesep}{9.5pt}     % below the section rule
 \newlength{\entrysep}     \setlength{\entrysep}{4pt}     % between two-line entries
 \newlength{\compactsep}   \setlength{\compactsep}{2pt}   % between one-liner entries
 \newlength{\bulletsep}    \setlength{\bulletsep}{3pt}    % between bullets
 \newlength{\bulletlistsep}\setlength{\bulletlistsep}{3pt}% around a bullet list
-\newlength{\notesep}      \setlength{\notesep}{7pt}      % before a trailing note
+\newlength{\notesep}      \setlength{\notesep}{4pt}      % before a trailing note
 
 %-------------------------------------------------------------------
 % Section headings: titlesec owns the space before/after the title.
@@ -155,14 +155,16 @@
 %-----------PROJECTS-----------------
 \section{Selected Projects}
   \resumeSubHeadingListStart[\entrysep]
-    \resumeSubItem{Linux Kernel Module and Page-Table Interface}
-      {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that walk page tables and install entries on demand.}
-    \resumeSubItem{Multimodal Perception of Driving Corner Cases}
-      {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining QA pairs from misses.}
     \resumeSubItem{RISC CPU Design, from RTL to GDSII}
       {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, place \& route, post-layout simulation, STA, LVS, and DRC.}
     \resumeSubItem{MLP Inference Accelerator on an FPGA SoC}
       {Offloaded digit classification from an FPU-less soft-core CPU on a Xilinx Artix-7, keeping the multiply-adder saturated and overlapping transfers via BRAM FIFOs for a 309x speedup.}
+    \resumeSubItem{Multimodal Perception of Driving Corner Cases}
+      {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining QA pairs from misses.}
+    \resumeSubItem{Channel, Global, and Detailed Routers for VLSI}
+      {Built a greedy channel router, a global router that rips up and reroutes by negotiation on ISPD 2008 benchmarks, and a detailed router that encodes routability as MaxSAT.}
+    \resumeSubItem{Linux Kernel Module and Page-Table Interface}
+      {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that walk page tables and install entries on demand.}
     \resumeSubItem{Parallel Ray Tracer with SIMD, OpenMP, MPI, and CUDA}
       {Built a ray tracer from scratch and parallelized it across pixels, samples, and bounces, with coalesced access and a split-kernel design that raises CUDA occupancy.}
     \resumeNote{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}
