@@ -16,8 +16,13 @@
 
 \pagestyle{empty}
 \urlstyle{same}
-\raggedbottom
 \setlength{\parindent}{0pt}
+
+% Centre the column vertically
+\makeatletter
+\def\@texttop{\vfil}
+\def\@textbottom{\vfil}
+\makeatother
 
 % Ensure that generated PDF is machine readable/ATS parsable
 \pdfgentounicode=1
