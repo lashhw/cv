@@ -1,100 +1,83 @@
 %-------------------------
-% Resume in LateX
-% Author : Sourabh Bajaj
-% License : MIT
+% Resume in LaTeX
+% Based on a template by Sourabh Bajaj
+% License: MIT
 %------------------------
 
 \documentclass[a4paper,11pt]{article}
 
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,margin=0.5in]{geometry}
 \usepackage{titlesec}
-\usepackage[usenames,dvipsnames]{color}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{xcolor}
 \usepackage[english]{babel}
-\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
 \input{glyphtounicode}
 
-\pagestyle{fancy}
-\fancyhf{} % Clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
+\pagestyle{empty}
 \urlstyle{same}
-
 \raggedbottom
-\setlength{\parindent}{0pt}  % justified text; keep no paragraph indent
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+\setlength{\parindent}{0pt}
 
 % Ensure that generated PDF is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
-}
+%-------------------------------------------------------------------
+% Vertical spacing knobs.  Every gap in the CV is set here, in one
+% place -- nothing in the body should ever call \vspace.
+%-------------------------------------------------------------------
+\newlength{\sectionsep}   \setlength{\sectionsep}{9pt}  % above a section title
+\newlength{\titlesep}     \setlength{\titlesep}{10pt}     % below the section rule
+\newlength{\entrysep}     \setlength{\entrysep}{4pt}     % between two-line entries
+\newlength{\compactsep}   \setlength{\compactsep}{2pt}   % between one-liner entries
+\newlength{\bulletsep}    \setlength{\bulletsep}{3pt}    % between bullets
+\newlength{\bulletlistsep}\setlength{\bulletlistsep}{3pt}% around a bullet list
+\newlength{\notesep}      \setlength{\notesep}{7pt}      % before a trailing note
 
-% Just in case someone needs a heading that does not need to be in a list
-\newcommand{\resumeHeading}[4]{
-    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
+%-------------------------------------------------------------------
+% Section headings: titlesec owns the space before/after the title.
+%-------------------------------------------------------------------
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{\sectionsep}{\titlesep}
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small #3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
+%-------------------------------------------------------------------
+% Lists: enumitem owns the space around and between items.
+%   entries -- full-width, unlabelled; one \item per CV entry
+%   bullets -- the indented bullets belonging to an entry
+%-------------------------------------------------------------------
+\newlist{entries}{itemize}{1}
+\setlist[entries]{label={},leftmargin=0pt,labelwidth=0pt,labelsep=0pt,
+                  topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=\entrysep}
 
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small #1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-}
+\newlist{bullets}{itemize}{1}
+\setlist[bullets]{label=\textbullet,leftmargin=1.5em,labelsep=0.5em,topsep=\bulletlistsep,
+                  partopsep=0pt,parsep=0pt,itemsep=\bulletsep}
 
-\newcommand{\resumeItemPlain}[1]{%
-  \item{\small #1\vspace{-2pt}\par}%
-}
+%-------------------------------------------------------------------
+% Content commands.  \lrline is the only layout primitive: one line
+% with #1 flush left and #2 flush right (no tabular, no struts).
+%-------------------------------------------------------------------
+\newcommand{\lrline}[2]{#1\hfill#2}
+
+\newcommand{\resumeSubheading}[4]{%
+  \item \lrline{\textbf{#1}}{#2}\\
+        \lrline{\textit{\small #3}}{\textit{\small #4}}}
+
+\newcommand{\resumeAward}[2]{\item \small\lrline{#1}{#2}}
+
+\newcommand{\resumeSubItem}[2]{\item \small\textbf{#1}: #2}
+
+\newcommand{\resumeItemPlain}[1]{\item \small #1}
+
+% A closing remark set off from the entries above it.
+\newcommand{\resumeNote}[1]{\par\addvspace{\notesep}\item \small\textit{#1}}
 
 \newcommand{\subnote}[1]{{\footnotesize\textup{\textcolor[gray]{0.45}{(#1)}}}}
 
-\newcommand{\resumeAward}[2]{%
-  \item\small{%
-    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
-      #1 & #2
-    \end{tabular*}\vspace{-4pt}%
-  }%
-}
-
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
-
-\renewcommand{\labelitemii}{$\bullet$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,rightmargin=\labelsep,label={},itemsep=6pt,parsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\vspace{-2pt}\begin{itemize}[leftmargin=1.5em,itemsep=4pt,parsep=0pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+\newcommand{\resumeSubHeadingListStart}[1][\entrysep]{\begin{entries}[itemsep=#1]}
+\newcommand{\resumeSubHeadingListEnd}{\end{entries}}
+\newcommand{\resumeItemListStart}{\begin{bullets}}
+\newcommand{\resumeItemListEnd}{\end{bullets}}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,12 +86,10 @@
 \begin{document}
 
 %----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://lashhw.github.io/}{\Large Yen-Chieh Huang}} & LinkedIn: \href{https://linkedin.com/in/lashhw/}{linkedin.com/in/lashhw} \\
-  \href{https://lashhw.github.io/}{https://lashhw.github.io/} & Email: \href{mailto:r13921038@ntu.edu.tw}{r13921038@ntu.edu.tw}
-\end{tabular*}
-
-
+\lrline{{\Large\textbf{\href{https://lashhw.github.io/}{Yen-Chieh Huang}}}}%
+       {LinkedIn: \href{https://linkedin.com/in/lashhw/}{linkedin.com/in/lashhw}}\\
+\lrline{\href{https://lashhw.github.io/}{https://lashhw.github.io/}}%
+       {Email: \href{mailto:r13921038@ntu.edu.tw}{r13921038@ntu.edu.tw}}
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
@@ -162,7 +143,7 @@
 
 %-----------HONORS AND AWARDS-----------------
 \section{Honors \& Awards}
-  \resumeSubHeadingListStart
+  \resumeSubHeadingListStart[\compactsep]
     \resumeAward{Outstanding Students Conference Travel Grant \subnote{for presenting at ISCA 2025}}{\textit{FAOS}, 2025}
     \resumeAward{Phi Tau Phi Scholastic Honor Society Member \subnote{for top 1\% in CS department}}{\textit{NYCU}, 2024}
     \resumeAward{Yin Zhi Tong Electronics Laboratory Scholarship \subnote{for excellence in electronics project}}{\textit{NYCU}, 2024}
@@ -173,10 +154,18 @@
 
 %-----------PROJECTS-----------------
 \section{Selected Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{XXX}
-      {YYY}
-    \resumeItemPlain{\textit{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}}
+  \resumeSubHeadingListStart[\entrysep]
+    \resumeSubItem{Linux Kernel Module and Page-Table Interface}
+      {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that walk page tables and install entries on demand.}
+    \resumeSubItem{Multimodal Perception of Driving Corner Cases}
+      {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining QA pairs from misses.}
+    \resumeSubItem{RISC CPU Design, from RTL to GDSII}
+      {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, place \& route, post-layout simulation, STA, LVS, and DRC.}
+    \resumeSubItem{MLP Inference Accelerator on an FPGA SoC}
+      {Offloaded digit classification from an FPU-less soft-core CPU on a Xilinx Artix-7, keeping the multiply-adder saturated and overlapping transfers via BRAM FIFOs for a 309x speedup.}
+    \resumeSubItem{Parallel Ray Tracer with SIMD, OpenMP, MPI, and CUDA}
+      {Built a ray tracer from scratch and parallelized it across pixels, samples, and bounces, with coalesced access and a split-kernel design that raises CUDA occupancy.}
+    \resumeNote{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}
   \resumeSubHeadingListEnd
 
 %
