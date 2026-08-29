@@ -10,6 +10,7 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage{fontspec}
 \usepackage[hidelinks]{hyperref}
@@ -35,6 +36,30 @@
 \newlength{\bulletsep}    \setlength{\bulletsep}{3pt}    % between bullets
 \newlength{\bulletlistsep}\setlength{\bulletlistsep}{3pt}% around a bullet list
 \newlength{\notesep}      \setlength{\notesep}{4pt}      % before a trailing note
+
+%-------------------------------------------------------------------
+% Headshot.  yen-chieh-huang-photo.tex sets \photofile before loading
+% this file; the column between \photocolumnstart and \photocolumnend
+% is then narrowed and the photo scaled to its exact height, costing no
+% vertical space.  A grey 7:9 box stands in when the file is absent.
+%-------------------------------------------------------------------
+\providecommand{\photofile}{}
+\newlength{\photowidth}\setlength{\photowidth}{1.23in} % strip reserved for it
+\newlength{\photosep}  \setlength{\photosep}{14pt}    % gap to its left
+
+\ifx\photofile\empty
+  \newcommand{\photocolumnstart}{}\newcommand{\photocolumnend}{}
+\else
+  \newsavebox{\photocolumn}
+  \newcommand{\photocolumnstart}{\begin{lrbox}{\photocolumn}%
+    \begin{minipage}[b]{\dimexpr\textwidth-\photowidth-\photosep\relax}}
+  % [b] shares the column's last baseline; \ht is the height above it.
+  \newcommand{\photocolumnend}{\end{minipage}\end{lrbox}%
+    \usebox{\photocolumn}\hfill
+    \IfFileExists{\photofile}{\includegraphics[height=\ht\photocolumn]{\photofile}}%
+      {{\fboxsep=0pt\colorbox[gray]{0.87}{\parbox[b][\ht\photocolumn][c]%
+        {\dimexpr\ht\photocolumn*7/9\relax}{\centering\scshape\color[gray]{0.45}photo}}}}}
+\fi
 
 %-------------------------------------------------------------------
 % Section headings: titlesec owns the space before/after the title.
@@ -91,6 +116,7 @@
 
 \begin{document}
 
+\photocolumnstart
 %----------HEADING-----------------
 \lrline{{\Large\textbf{Yen-Chieh Huang}}\ \cn{\Large 黃彥傑}}%
        {LinkedIn: \href{https://linkedin.com/in/lashhw/}{linkedin.com/in/lashhw}}\\
@@ -106,6 +132,7 @@
       {National Yang Ming Chiao Tung University (NYCU)}{Sep 2020 -- Jun 2024}
       {B.S. in Computer Science\textup{, GPA: 4.28/4.30, Rank: 2/201 \subnote{top 1\%}}}{Hsinchu, Taiwan}
   \resumeSubHeadingListEnd
+\photocolumnend
 
 
 %-----------PUBLICATIONS-----------------

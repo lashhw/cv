@@ -1,8 +1,8 @@
 .PHONY: all watch clean
 
-all: build/yen-chieh-huang.pdf
+all: build/yen-chieh-huang.pdf build/yen-chieh-huang-photo.pdf
 
-build/yen-chieh-huang.pdf: yen-chieh-huang.tex
+build/%.pdf: %.tex yen-chieh-huang.tex $(wildcard photo.jpg)
 	latexmk -xelatex -outdir=build $<
 
 watch:
