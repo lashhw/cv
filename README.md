@@ -1,5 +1,5 @@
 # CV
 
-📄 **[yen-chieh-huang.pdf](https://github.com/lashhw/cv/raw/pdf/yen-chieh-huang.pdf)**
+📄 **[yen-chieh-huang.pdf](https://lashhw.github.io/cv/yen-chieh-huang.pdf)**
 
-<img src="https://raw.githubusercontent.com/lashhw/cv/pdf/preview-1.png" alt="Page 1" width="100%">
+<img src="https://lashhw.github.io/cv/preview-1.png" alt="Page 1" width="100%">
