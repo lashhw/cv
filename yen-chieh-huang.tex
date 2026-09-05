@@ -29,9 +29,10 @@
 % Vertical spacing knobs.  Every gap in the CV is set here, in one
 % place -- nothing in the body should ever call \vspace.
 %-------------------------------------------------------------------
-\newlength{\sectionsep}   \setlength{\sectionsep}{7.5pt}  % above a section title
-\newlength{\titlesep}     \setlength{\titlesep}{9.5pt}     % below the section rule
-\newlength{\entrysep}     \setlength{\entrysep}{4pt}     % between two-line entries
+\newlength{\sectionsep}   \setlength{\sectionsep}{6pt}   % above a section title
+\newlength{\titlesep}     \setlength{\titlesep}{8.5pt}   % below the section rule
+\newlength{\entrysep}     \setlength{\entrysep}{3.5pt}   % between two-line entries
+\newlength{\blocksep}     \setlength{\blocksep}{4.5pt}   % between entries with bullets
 \newlength{\compactsep}   \setlength{\compactsep}{2pt}   % between one-liner entries
 \newlength{\bulletsep}    \setlength{\bulletsep}{3pt}    % between bullets
 \newlength{\bulletlistsep}\setlength{\bulletlistsep}{3pt}% around a bullet list
@@ -147,7 +148,7 @@
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
-  \resumeSubHeadingListStart
+  \resumeSubHeadingListStart[\blocksep]
 
     \resumeSubheading
       {Graduate Researcher}{Sep 2024 -- Aug 2026}
@@ -185,34 +186,31 @@
   \resumeSubHeadingListEnd
 
 
+%--------SKILLS------------
+\section{Skills}
+  \resumeSubHeadingListStart[\compactsep]
+    \resumeSubItem{Programming}
+      {C/C++, Python, Verilog/SystemVerilog, CUDA, Triton, OpenMP, MPI, SystemC, R, Bash, Tcl}
+    \resumeSubItem{ML Systems} 
+      {PyTorch, Hugging Face Transformers/PEFT, KV Cache, TensorFlow Lite Micro, STM32Cube.AI}
+    \resumeSubItem{Hardware Design}
+      {Vitis HLS, Catapult HLS, Vivado, Design Compiler, QuestaSim, VCS/Verdi, Xilinx Zynq MPSoC}
+  \resumeSubHeadingListEnd
+
+
 %-----------PROJECTS-----------------
 \section{Selected Projects}
   \resumeSubHeadingListStart[\entrysep]
     \resumeSubItem{RISC CPU Design, from RTL to GDSII}
       {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, automatic place \& route, post-layout simulation, STA, LVS, and DRC.}
-    \resumeSubItem{MLP Inference Accelerator on an FPGA SoC}
-      {Offloaded digit classification from an FPU-less soft-core CPU on a Xilinx Artix-7, keeping the multiply-adder saturated and overlapping transfers via BRAM FIFOs for a 309x speedup.}
     \resumeSubItem{Channel, Global, and Detailed Routers for VLSI}
       {Built a greedy channel router, a global router using negotiation-based rip-up and reroute on ISPD 2008 benchmarks, and a detailed router that encodes routability as MaxSAT.}
     \resumeSubItem{Linux Kernel Module and Page-Table Manipulation}
       {Hooked the syscall table to hide the module and filter syscalls per process; added an ARM64 syscall and a \texttt{userfaultfd} handler that install page-table entries on demand.}
-    \resumeSubItem{Parallel Ray Tracer with SIMD, OpenMP, MPI, and CUDA}
-      {Built a ray tracer from scratch and parallelized it across pixels, samples, and bounces, with coalesced access and a split-kernel design that raises CUDA occupancy.}
     \resumeSubItem{Multimodal VLM for Driving Comprehension}
       {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining new QA pairs from its mistakes.}
     \resumeNote{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}
   \resumeSubHeadingListEnd
-
-%
-%--------SKILLS------------
-%\section{Skills}
-%  \resumeSubHeadingListStart
-%    \item{
-%      \textbf{Languages}{: Scala, Python, JavaScript, C++, SQL, Java}
-%      \hfill
-%      \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
-%    }
-%  \resumeSubHeadingListEnd
 
 
 %-------------------------------------------
