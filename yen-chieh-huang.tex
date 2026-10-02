@@ -43,12 +43,12 @@
 % vertical space.  A grey 7:9 box stands in when the file is absent.
 %-------------------------------------------------------------------
 \providecommand{\photofile}{}
-\newlength{\photowidth}\setlength{\photowidth}{1.23in} % strip reserved for it
-\newlength{\photosep}  \setlength{\photosep}{14pt}    % gap to its left
 
 \ifx\photofile\empty
   \newcommand{\photocolumnstart}{}\newcommand{\photocolumnend}{}
 \else
+  \newlength{\photowidth}\setlength{\photowidth}{1.23in} % strip reserved for it
+  \newlength{\photosep}  \setlength{\photosep}{14pt}    % gap to its left
   \newsavebox{\photocolumn}
   \newcommand{\photocolumnstart}{\begin{lrbox}{\photocolumn}%
     \begin{minipage}[b]{\dimexpr\textwidth-\photowidth-\photosep\relax}}
@@ -72,7 +72,8 @@
 %   bullets -- the indented bullets belonging to an entry
 %-------------------------------------------------------------------
 \newlist{entries}{itemize}{1}
-\setlist[entries]{label={},leftmargin=0pt, topsep=0pt,partopsep=0pt,parsep=0pt}
+\setlist[entries]{label={},leftmargin=0pt,topsep=0pt,partopsep=0pt,parsep=0pt,
+                  itemsep=\entrysep}
 
 \newlist{bullets}{itemize}{1}
 \setlist[bullets]{label=\textbullet,leftmargin=1.5em,labelsep=0.5em,topsep=\bulletlistsep,
@@ -103,11 +104,6 @@
 
 \newcommand{\subnote}[1]{{\footnotesize\textup{\textcolor[gray]{0.45}{(#1)}}}}
 
-\newcommand{\resumeSubHeadingListStart}[1][\entrysep]{\begin{entries}[itemsep=#1]}
-\newcommand{\resumeSubHeadingListEnd}{\end{entries}}
-\newcommand{\resumeItemListStart}{\begin{bullets}}
-\newcommand{\resumeItemListEnd}{\end{bullets}}
-
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -122,70 +118,70 @@
        {Email: \href{mailto:r13921038@ntu.edu.tw}{r13921038@ntu.edu.tw}}
 %-----------EDUCATION-----------------
 \section{Education}
-  \resumeSubHeadingListStart
+  \begin{entries}
     \resumeSubheading
       {National Taiwan University (NTU)}{Sep 2024 -- Aug 2026}
       {M.S. in Electrical Engineering\textup{, GPA: 4.16/4.30}}{Taipei, Taiwan}
     \resumeSubheading
       {National Yang Ming Chiao Tung University (NYCU)}{Sep 2020 -- Jun 2024}
       {B.S. in Computer Science\textup{, GPA: 4.28/4.30, Rank: 2/201 \subnote{top 1\%}}}{Hsinchu, Taiwan}
-  \resumeSubHeadingListEnd
+  \end{entries}
 \photocolumnend
 
 
 %-----------PUBLICATIONS-----------------
 \section{Publications}
-  \resumeSubHeadingListStart
+  \begin{entries}
     \resumeItemPlain{\textbf{Y.-C. Huang}, P.-C. Hsiu, R. Fang, and M.-S. Chen, ``KV Admission: Learning What to Write for Efficient Long-Context LLM Inference,'' \textit{EMNLP}, 2026 \subnote{top NLP conference}}
     \resumeItemPlain{C.-Y. Liu, H. R. Mendis, \textbf{Y.-C. Huang}, Y.-J. Chen, and P.-C. Hsiu, ``Splitting Bottlenecks: Memory-Aware Neural Architecture Search for Multi-Branch TinyML,'' \textit{IEEE TCAD}, 2026 \subnote{top EDA journal}}
     \resumeItemPlain{\textbf{Y.-C. Huang}, C.-P. Yang, and T. T. Yeh, ``AQB8: Energy-Efficient Ray Tracing Accelerator through Multi-Level Quantization,'' \textit{ISCA}, 2025 \subnote{top computer architecture conference}}
-  \resumeSubHeadingListEnd
+  \end{entries}
 
 
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
-  \resumeSubHeadingListStart[\blocksep]
+  \begin{entries}[itemsep=\blocksep]
 
     \resumeSubheading
       {Graduate Researcher}{Sep 2024 -- Aug 2026}
       {NTU \& Academia Sinica \subnote{Advised by Prof. Ming-Syan Chen and Prof. Pi-Cheng Hsiu}}{Taipei, Taiwan}
-      \resumeItemListStart
+      \begin{bullets}
         \resumeItemPlain{Proposed KV Admission, a learned write gate that filters redundant tokens before cache entry, and built a dual-cache paged manager with sparse attention kernels for 1.6-4.2x faster long-context LLM inference (EMNLP 2026).}
         \resumeItemPlain{Built the TensorFlow Lite Micro and STM32Cube.AI deployment toolchain for DupNAS, a memory-aware neural architecture search (NAS) framework for multi-branch TinyML on STM microcontrollers (IEEE TCAD 2026).}
-      \resumeItemListEnd
+      \end{bullets}
 
     \resumeSubheading
       {Undergraduate Researcher}{Jul 2022 -- Jun 2024}
       {National Yang Ming Chiao Tung University \subnote{Advised by Prof. Tsung Tai Yeh}}{Hsinchu, Taiwan}
-      \resumeItemListStart
+      \begin{bullets}
         \resumeItemPlain{Designed AQB8, a ray tracing (RT) accelerator that traverses BVH trees directly in low-bit integers via multi-level quantization, achieving 49\% lower energy and 27\% smaller area over modern GPU RT accelerators (ISCA 2025).}
-      \resumeItemListEnd
+      \end{bullets}
 
     \resumeSubheading
       {Teaching Assistant, Digital Circuit Design}{Feb 2023 -- Jun 2023}
       {National Yang Ming Chiao Tung University \subnote{English-medium course}}{Hsinchu, Taiwan}
-      \resumeItemListStart
+      \begin{bullets}
         \resumeItemPlain{Designed Verilog lab assignments and ran oral demo sessions, questioning students on their implementations to verify understanding; graded exams, homework, and lab reports while supporting students in office hours.}
-      \resumeItemListEnd
+      \end{bullets}
 
-  \resumeSubHeadingListEnd
+  \end{entries}
 
 
 %-----------HONORS AND AWARDS-----------------
 \section{Honors \& Awards}
-  \resumeSubHeadingListStart[\compactsep]
+  \begin{entries}[itemsep=\compactsep]
     \resumeAward{Outstanding Students Conference Travel Grant \subnote{for presenting at ISCA 2025}}{\textit{FAOS}, 2025}
     \resumeAward{Phi Tau Phi Scholastic Honor Society Member \subnote{for top 1\% in CS department}}{\textit{NYCU}, 2024}
     \resumeAward{Yin Zhi Tong Electronics Laboratory Scholarship \subnote{for excellence in electronics project}}{\textit{NYCU}, 2024}
     \resumeAward{Best Project Award, Competition of Computer Science and Engineering Projects}{\textit{NYCU}, 2024}
     \resumeAward{Academic Excellence Award \subnote{for top 5\% in CS department, awarded in 7 semesters}}{\textit{NYCU}, 2020 -- 2024}
-  \resumeSubHeadingListEnd
+  \end{entries}
 
 
 %--------SKILLS------------
 \section{Skills}
-  \resumeSubHeadingListStart[\compactsep]
+  \begin{entries}[itemsep=\compactsep]
     \resumeSubItem{Programming}
       {C/C++, Python, Verilog/SystemVerilog, CUDA, Triton, SystemC, Bash, R, Linux Kernel}
     \resumeSubItem{ML Systems}
@@ -194,12 +190,12 @@
       {Vivado, Vitis, PetaLinux, Zynq MPSoC, Design Compiler, Catapult HLS, QuestaSim, VCS/Verdi}
     \resumeSubItem{Languages}
       {Chinese (native), English (TOEIC 920, GEPT High-Intermediate)}
-  \resumeSubHeadingListEnd
+  \end{entries}
 
 
 %-----------PROJECTS-----------------
 \section{Selected Projects}
-  \resumeSubHeadingListStart
+  \begin{entries}
     \resumeSubItem{RISC CPU Design, from RTL to GDSII}
       {Independently built a 16-bit MIPS-like CPU with AXI4 memory interfaces, then took it through synthesis, floorplanning, automatic place \& route, post-layout simulation, STA, LVS, and DRC.}
     \resumeSubItem{Channel, Global, and Detailed Routers for VLSI}
@@ -209,7 +205,7 @@
     \resumeSubItem{Multimodal VLM for Driving Comprehension}
       {Led the team to 1st of 12 teams with a LoRA-tuned LLaVA fusing segmentation, depth, and ViT cues by cross-attention, plus a self-critiquing loop mining new QA pairs from its mistakes.}
     \resumeNote{Additional projects, with code and details, at \href{https://lashhw.github.io/projects/}{\textbf{lashhw.github.io/projects}}}
-  \resumeSubHeadingListEnd
+  \end{entries}
 
 
 %-------------------------------------------
